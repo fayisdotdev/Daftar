@@ -1,0 +1,142 @@
+lib/
+│── main.dart
+│── app.dart
+│
+├── core/
+│   ├── supabase/
+│   │   ├── supabase_client.dart
+│   │   ├── auth_service.dart
+│   │   └── db_service.dart
+│   ├── constants/
+│   ├── theme/
+│   └── utils/
+│
+├── features/
+│   ├── auth/
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   ├── repository/
+│   │   └── screens/
+│   │
+│   ├── customers/
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   ├── repository/
+│   │   ├── screens/
+│   │   └── reports/
+│   │
+│   ├── inventory/
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   ├── repository/
+│   │   └── screens/
+│   │
+│   ├── invoice/
+│   │   ├── models/
+│   │   ├── controllers/
+│   │   ├── repository/
+│   │   └── screens/
+│   │
+│   └── reports/
+│       ├── controllers/
+│       └── screens/
+│
+├── shared/
+│   ├── widgets/
+│   └── providers/
+│
+└── routes/
+    └── app_routes.dart
+
+
+created*
+
+cd lib 
+a) core
+mkdir core
+mkdir core\supabase
+mkdir core\constants
+mkdir core\theme
+mkdir core\utils
+
+ni core\supabase\supabase_client.dart
+ni core\supabase\auth_service.dart
+ni core\supabase\db_service.dart
+
+b) shared
+mkdir shared
+mkdir shared\widgets
+mkdir shared\providers
+
+c) features
+mkdir features
+
+d) features/auth
+mkdir features\auth
+mkdir features\auth\models
+mkdir features\auth\controllers
+mkdir features\auth\repository
+mkdir features\auth\screens
+
+ni features\auth\models\user_model.dart
+ni features\auth\controllers\auth_controller.dart
+ni features\auth\repository\auth_repository.dart
+ni features\auth\screens\login_screen.dart
+ni features\auth\screens\signup_screen.dart
+
+e) features/customers
+mkdir features\customers
+mkdir features\customers\models
+mkdir features\customers\controllers
+mkdir features\customers\repository
+mkdir features\customers\screens
+mkdir features\customers\reports
+
+ni features\customers\models\customer_model.dart
+ni features\customers\controllers\customer_controller.dart
+ni features\customers\repository\customer_repository.dart
+ni features\customers\screens\customers_list_screen.dart
+ni features\customers\screens\customer_detail_screen.dart
+
+f) features/inventory
+
+mkdir features\inventory
+mkdir features\inventory\models
+mkdir features\inventory\controllers
+mkdir features\inventory\repository
+mkdir features\inventory\screens
+
+ni features\inventory\models\product_model.dart
+ni features\inventory\controllers\inventory_controller.dart
+ni features\inventory\repository\inventory_repository.dart
+ni features\inventory\screens\inventory_list_screen.dart
+ni features\inventory\screens\add_product_screen.dart
+
+g) features/invoice
+
+mkdir features\invoice
+mkdir features\invoice\models
+mkdir features\invoice\controllers
+mkdir features\invoice\repository
+mkdir features\invoice\screens
+
+ni features\invoice\models\invoice_model.dart
+ni features\invoice\controllers\invoice_controller.dart
+ni features\invoice\repository\invoice_repository.dart
+ni features\invoice\screens\create_invoice_screen.dart
+ni features\invoice\screens\invoice_list_screen.dart
+
+h) features/reports
+
+mkdir features\reports
+mkdir features\reports\controllers
+mkdir features\reports\screens
+
+ni features\reports\controllers\reports_controller.dart
+ni features\reports\screens\reports_screen.dart
+
+i) routes
+
+mkdir routes
+ni routes\app_routes.dart
+ni app.dart
