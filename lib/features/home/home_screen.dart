@@ -42,6 +42,13 @@ class HomeScreen extends StatelessWidget {
                 },
                 child: const Text("Reports nav done"),
               ),
+               const SizedBox(height: 16),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushNamed(context, '/loginscreen');
+                },
+                child: const Text("Login nav done"),
+              ),
             ],
           ),
         ),
