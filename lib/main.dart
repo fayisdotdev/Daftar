@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: AppTheme.theme,
       title: 'Daftar',
-      initialRoute: AppRoutes.home,
+      initialRoute: AppRoutes.authgate,
       routes: AppRoutes.routes,
     );
   }

@@ -1,16 +1,24 @@
+import 'package:daftar/features/auth/controllers/auth_controller.dart';
 import 'package:daftar/features/auth/screens/login_screen.dart';
 import 'package:daftar/features/home/home_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:supabase_flutter/supabase_flutter.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-
-class AuthGate extends StatelessWidget {
+class AuthGate extends ConsumerWidget {
   const AuthGate({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    final session = Supabase.instance.client.auth.currentSession;
+  Widget build(BuildContext context, WidgetRef ref) {
+    final authState = ref.watch(authStateProvider);
 
-    return session == null ? const LoginScreen() : const HomeScreen();
+    if (authState.isLoading) {
+      return const Scaffold(
+        body: Center(
+          child: CircularProgressIndicator(),
+        ),
+      );
+    }
+
+    return authState.isAuthenticated ? const HomeScreen() : const LoginScreen();
   }
 }

@@ -1,5 +1,6 @@
 import 'package:daftar/features/auth/auth_gate.dart';
 import 'package:daftar/features/auth/screens/login_screen.dart';
+import 'package:daftar/features/auth/screens/signup_screen.dart';
 import 'package:daftar/features/reports/screens/reports_screen.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ class AppRoutes {
   static const String home = '/';
   static const String authgate = '/authgate';
   static const String login = '/loginscreen';
+  static const String signup = '/signup';
 
   static const String inventory = '/inventorylist';
   static const String invoice = '/invoicelist';
@@ -22,6 +24,7 @@ class AppRoutes {
     home: (context) => const HomeScreen(),
     //auth
     login: (context) => const LoginScreen(),
+    signup: (context) => const SignupScreen(),
     authgate: (context) => const AuthGate(),
 
     //
