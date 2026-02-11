@@ -23,7 +23,9 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
 
   void _handleEmailPasswordLogin() {
     if (_formKey.currentState!.validate()) {
-      ref.read(authStateProvider.notifier).signInWithEmailPassword(
+      ref
+          .read(authStateProvider.notifier)
+          .signInWithEmailPassword(
             email: _emailController.text.trim(),
             password: _passwordController.text,
           );
@@ -45,11 +47,11 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
     ref.listen(authStateProvider, (previous, next) {
       if (next.error != null) {
         ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text(next.error!),
-            backgroundColor: Colors.red,
-          ),
+          SnackBar(content: Text(next.error!), backgroundColor: Colors.red),
         );
+      }
+      if (next.isAuthenticated && !next.isLoading) {
+        Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
       }
     });
 
@@ -66,10 +68,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                   const SizedBox(height: 40),
                   const Text(
                     "Daftar",
-                    style: TextStyle(
-                      fontSize: 32,
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
                   ),
                   const SizedBox(height: 40),
                   Form(
@@ -133,17 +132,20 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
                                   ),
                                 )
                               : const Icon(Icons.login),
-                          label: Text(authState.isLoading
-                              ? "Signing In..."
-                              : "Sign In with Email"),
+                          label: Text(
+                            authState.isLoading
+                                ? "Signing In..."
+                                : "Sign In with Email",
+                          ),
                           style: ElevatedButton.styleFrom(
                             minimumSize: const Size(double.infinity, 48),
                           ),
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton.icon(
-                          onPressed:
-                              authState.isLoading ? null : _handleGoogleLogin,
+                          onPressed: authState.isLoading
+                              ? null
+                              : _handleGoogleLogin,
                           icon: const Icon(Icons.g_mobiledata),
                           label: const Text("Sign In with Google"),
                           style: ElevatedButton.styleFrom(
@@ -173,9 +175,7 @@ class _LoginScreenState extends ConsumerState<LoginScreen> {
           if (authState.isLoading)
             Container(
               color: Colors.black.withOpacity(0.3),
-              child: const Center(
-                child: CircularProgressIndicator(),
-              ),
+              child: const Center(child: CircularProgressIndicator()),
             ),
         ],
       ),
